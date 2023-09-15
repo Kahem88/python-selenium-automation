@@ -7,11 +7,9 @@ def browser_init(context):
     """
     :param context: Behave context
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
-
-    context.driver.maximize_window()
+    #driver_path = ChromeDriverManager().install()
+    service = Service(executable_path="/Users/kahempatrick/QA/python-selenium-automation/geckodriver")
+    context.driver = webdriver.Firefox(service=service)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
