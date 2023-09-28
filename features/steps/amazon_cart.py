@@ -4,10 +4,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
 
-@given('Open Amazon page')
-def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
-    sleep(9)
+# @given('Open Amazon page')
+# def open_amazon(context):
+#     context.driver.get('https://www.amazon.com/')
+#     sleep(9)
 @when('click on the second product')
 def click_first_product(context):
     # context.driver.find_element(By.CSS_SELECTOR, '.a-price').click()
@@ -22,9 +22,9 @@ def get_product_name(context):
     small_computer_desk_small_office_desk_32_inch_writing_desk = context.driver.find_element(By.ID, 'Small Computer Desk Small Office Desk 32 Inch Writing Desk').text
 
 
-@when('click on add to cart button')
-def click_add_to_cart(context):
-    context.driver.find_element(By. ID, 'add-to-cart-button').click()
+# @when('click on add to cart button')
+# def click_add_to_cart(context):
+#     context.driver.find_element(By. ID, 'add-to-cart-button').click()
 
 
 @when('open cart page')
