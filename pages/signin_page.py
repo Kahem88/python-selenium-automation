@@ -8,7 +8,7 @@ class SigninPage(Page):
     EMAIL_FIELD = (By.ID, 'ap_email')
 
     def verify_signin_page_opened(self, expected_text):
-        # expected_text = 'Sign in'
+        # expected_text='sign in'
         actual_text = self.find_element(*self.ACTUAL_TEXT).text
         assert actual_text == expected_text, f'Expected {expected_text} but got {actual_text}'
         self.find_element(*self.EMAIL_FIELD)
