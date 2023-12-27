@@ -16,5 +16,11 @@ def scroll_down_to_bottom(context):
 
 @then('verify "send request" button is available and clickable')
 def verify_send_request_button_available_clickable(context):
-    context.app.book_presentation_page.is_request_button_available()
+    context.app.book_presentation_page.wait_for_button_clickable_available()
+
+@then('Verify “buy a subscription” button is available and clickable')
+def verify_subscription_button_available_clickable(context):
+    context.app.book_presentation_page.wait_for_subscription_clickable_available()
+
+
 

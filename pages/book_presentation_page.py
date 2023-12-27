@@ -3,6 +3,8 @@ from pages.base_page import Page
 from time import sleep
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class BookPresentationPage(Page):
@@ -21,7 +23,8 @@ class BookPresentationPage(Page):
     name_text = 'Kahem'
     email_text = 'kahempatrick89@yahoo.com'
 
-    BUTTON_1 = (By.CSS_SELECTOR, 'purchase-access.w-button')
+    BUTTON_1 = (By.CSS_SELECTOR, '[value="Send request"]')
+    BUTTON_2 = (By.CSS_SELECTOR, '.step-button.margin-bottom-8.w-button')
 
     def input_fields(self):
         self.driver.find_element(*self.YOUR_COUNTRY).send_keys(self.text)
@@ -68,5 +71,17 @@ class BookPresentationPage(Page):
         actions.perform()
         # self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    def is_request_button_available(self):
-        return self.driver.find_element(*self.BUTTON_1).is_displayed()
+    # def is_request_button_available(self):
+    #     return self.driver.find_element(*self.BUTTON_1).is_displayed()
+
+    # wait_for_button_clickable
+
+
+    def wait_for_button_clickable_available(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.BUTTON_1)
+        )
+    def wait_for_subscription_clickable_available(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.BUTTON_2)
+        )
