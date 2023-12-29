@@ -1,6 +1,8 @@
+import time
+
 from selenium.webdriver.common.by import By
 from pages.base_page import Page
-from time import sleep
+import time
 from selenium.webdriver.support import expected_conditions as EC
 
 # locator_1 = (By.ID, "email-2")
@@ -22,7 +24,7 @@ class MainPage2(Page):
 
     def open_reelly_page(self):
         self.driver.get('https://soft.reelly.io/')
-        sleep(5)
+
 
     def log_in(self):
 
@@ -31,18 +33,18 @@ class MainPage2(Page):
         # self.input_text('Juanita$88', *self.locator_2)
         # self.click(*self.login_btn)
         # sleep(5)
-
+        time.sleep(10)
         self.input("Kahempatrick88@yahoo.com", *self.EMAIL)
         self.input("Juanita$88", *self.PASSWORD)
         self.click(*self.LOGIN)
 
-        sleep(2)
+        time.sleep(2)
 
 
 
     def click_connect_page(self):
         self.wait_for_visible(self.COMPANY_BTN).click()
-        sleep(2)
+        time.sleep(2)
 
     # def click(self, *locator):
     #     self.driver.find_element(connect_the_company_button).click()
