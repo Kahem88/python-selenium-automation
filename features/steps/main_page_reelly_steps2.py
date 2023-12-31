@@ -11,11 +11,12 @@ def open_reelly_page2(context):
 @when('Log in to the reelly page')
 def log_into_the_page(context):
     context.app.main_page_reelly2.log_in()
-    sleep(2)
+    sleep(15)
 
 @when('click on connect the company')
 def click_connect_company_button(context):
     context.app.main_page_reelly2.click_connect_page()
+    sleep(15)
 
 @when('switch the new tab')
 def switch_to_new_window(context):

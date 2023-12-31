@@ -38,13 +38,13 @@ class MainPage2(Page):
         self.input("Juanita$88", *self.PASSWORD)
         self.click(*self.LOGIN)
 
-        time.sleep(2)
+        time.sleep(15)
 
 
 
     def click_connect_page(self):
         self.wait_for_visible(self.COMPANY_BTN).click()
-        time.sleep(2)
+        time.sleep(15)
 
     # def click(self, *locator):
     #     self.driver.find_element(connect_the_company_button).click()
