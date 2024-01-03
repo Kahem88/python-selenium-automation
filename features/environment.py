@@ -7,15 +7,17 @@ from selenium.webdriver.chrome.options import Options
 
 from app.application import Application
 
+# behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/connect_the_company.feature
+
 
 def browser_init(context, scenario_name):
-#     """
-#     :param context: Behave context
-#     """
+    """
+    :param context: Behave context
+    """
 #     # driver_path = ChromeDriverManager(version="119.0.5994.0").install()  # Replace with the exact version you downloaded
-#     # driver_path = '/Users/kahempatrick/QA/python-selenium-automation/chromedriver'
-#     # service = Service(driver_path)
-#     # context.driver = webdriver.Chrome(service=service)
+    driver_path = '/Users/kahempatrick/QA/python-selenium-automation/chromedriver'
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
 #     # context.driver = webdriver.Chrome()
 #
 #     ### OTHER BROWSERS ###
@@ -36,19 +38,19 @@ def browser_init(context, scenario_name):
 
     ### BROWSERSTACK ###
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    bs_user = 'kahempatrick_KhZkbM'
-    bs_key = 'v2pDquqNzPnFxWnWfZxb'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-
-    options = Options()
-    bstack_options = {
-        'os': 'Windows',
-        'osVersion': '11',
-        'browserName': 'Chrome',
-        'sessionName': scenario_name
-    }
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
+    # bs_user = 'kahempatrick_KhZkbM'
+    # bs_key = 'v2pDquqNzPnFxWnWfZxb'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    # options = Options()
+    # bstack_options = {
+    #     'os': 'Windows',
+    #     'osVersion': '11',
+    #     'browserName': 'Chrome',
+    #     'sessionName': scenario_name
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
 
     # context.driver.maximize_window()
     context.driver.set_window_size(1280, 720)
